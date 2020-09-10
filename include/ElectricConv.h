@@ -7,11 +7,6 @@ namespace ElectricConv
     class ChargeConverter
     {
 
-    class CapacityConverter
-    {
-        // TODO: CapacityConverter
-    };
-
     private:
 
         /**
@@ -85,6 +80,142 @@ namespace ElectricConv
             STATCOULOMB,
             /// Elementary charge
             ELEMENTARY_CHARGE
+        };
+
+        /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
+        /// @param inUnit The unit of the given value
+        /// @param inVal The value to convert
+        /// @param outUnit The unit of the result
+        double Convert(UNITS inUnit, double inVal, UNITS outUnit);
+    };
+
+    class CapacityConverter
+    {
+        /**
+            ELECTRIC CAPACITY
+
+            Calculations are based on 1 Farad
+        **/
+
+    private:
+
+        /// Farad
+        const double F = 1;
+
+        /// Decafarad equal to 1 Farad
+        const double daF = 0.1;
+
+        /// Hectofarad equal to 1 Farad
+        const double hF = 0.01;
+
+        /// Kilofarad equal to 1 Farad
+        const double kF = 0.001;
+
+        /// Megafarad equal to 1 Farad
+        const double MF = 0.000001;
+
+        /// Gigafarad equal to 1 Farad
+        const double GF = 10E-9;
+
+        /// Terafarad equal to 1 Farad
+        const double TF = 10E-13;
+
+        /// Petafarad equal to 1 Farad
+        const double PF = 10E-15;
+
+        /// Exafarad equal to 1 Farad
+        const double EF = 10E-18;
+
+        /// Zettafarad equal to 1 Farad
+        const double ZF = 10E-21;
+
+        /// Yottafarad equal to 1 Farad
+        const double YF = 10E-24;
+
+        /// Decifarad equal to 1 Farad
+        const double dF = 10;
+
+        /// Centifarad equal to 1 Farad
+        const double cF = 100;
+
+        /// Microfarad equal to 1 Farad
+        const double uF = 1000000;
+
+        /// Nanofarad equal to 1 Farad
+        const double nF = 1000000000;
+
+        /// Picofarad equal to 1 Farad
+        const double pF = 10E+12;
+
+        /// Femtofarad equal to 1 Farad
+        const double fF = 10E+15;
+
+        /// Attofarad equal to 1 Farad
+        const double aF = 10E+18;
+
+        /// Zeptofarad equal to 1 Farad
+        const double zF = 10E+21;
+
+        /// Yoctofarad equal to 1 Farad
+        const double yF = 10E+24;
+
+        /// Coulomb per Volt equal to 1 Farad
+        const double CpV = 1;
+
+        /// Abfarad equal to 1 Farad
+        const double abF = 10E-9;
+
+        /// Statfarad equal to 1 Farad
+        const double statF = 8.9875517874 * (10E+11);
+
+        enum UNITS
+        {
+            /// Farad
+            FARAD,
+            /// Decafarad
+            DECAFARAD,
+            /// Hectofarad
+            HECTOFARAD,
+            /// Kilofarad
+            KILOFARAD,
+            /// Megafarad
+            MEGAFARAD,
+            /// Gigafarad
+            GIGAFARAD,
+            /// Terafarad
+            TERAFARAD,
+            /// Petafarad
+            PETAFARAD,
+            /// Exafarad
+            EXAFARAD,
+            /// Zettafarad
+            ZETTAFARAD,
+            /// Yottafarad
+            YOTTAFARAD,
+            /// Decifarad
+            DECIFARAD,
+            /// Centifarad
+            CENTIFARAD,
+            /// Microfarad
+            MICROFARAD,
+            /// Nanofarad
+            NANOFARAD,
+            /// Picofarad
+            PICOFARAD,
+            /// Femtofarad
+            FEMTOFARAD,
+            /// Attofarad
+            ATTOFARAD,
+            /// Zeptofarad
+            ZEPTOFARAD,
+            /// Yoctofarad
+            YOCTOFARAD,
+            /// Coulomb per Volt
+            COULOMB_PER_VOLT,
+            /// Abfarad
+            ABFARAD,
+            /// Statfarad
+            STATFARAD
         };
 
         /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
