@@ -23,55 +23,13 @@
 #ifndef CONVERTER_H
 #define CONVERTER_H
 
+#include <map>
+
 namespace ElectricConv
 {
     /// ChargeConverter is used to convert electric charge units.
     class ChargeConverter
     {
-
-    private:
-
-        /**
-            ELECTRIC CHARGE
-
-            Calculations are based on 1 C (Coulomb)
-        **/
-
-        /// Coulomb equal to 1 C
-        const double C = 1;
-
-        /// Nanocoulomb equal to 1 C
-        const double nC = 1000000000;
-
-        /// Microcoulomb equal to 1 C
-        const double uC = 1000000;
-
-        /// Millicoulomb equal to 1 C
-        const double mC = 1000;
-
-        /// Kilocoulomb equal to 1 C
-        const double kC = 0.0001;
-
-        /// Megacoulomb equal to 1 C
-        const double MC = 0.000001;
-
-        /// Abcoulomb equal to 1 C
-        const double abC = 0.1;
-
-        /// Milliampere-hours equal to 1 C
-        const double mAh = 0.27777778;
-
-        /// Ampere-hours equal to 1 C
-        const double Ah = 0.00027778;
-
-        /// Faraday equal to 1 C
-        const double F = 0.00001036;
-
-        /// Statcoulomb equal to 1 C
-        const double statC = 2997924580;
-
-        /// Elementary charge equal to 1 C
-        const double e = 6.24150947E+18;
 
     public:
 
@@ -104,6 +62,27 @@ namespace ElectricConv
             ELEMENTARY_CHARGE
         };
 
+    private:
+
+        /// Unit mappings based on 1 coulomb
+        std::map<UNITS, double> unitMap =
+        {
+            {COULOMB, 1},
+            {NANOCOULOMB, 1000000000},
+            {MICROCOULOMB, 1000000},
+            {MILLICOULOMB, 1000},
+            {KILOCOULOMB, 0.0001},
+            {MEGACOULOMB, 0.000001},
+            {ABCOULOMB, 0.1},
+            {MILLIAMPERE_HOURS, 0.27777778},
+            {AMPERE_HOURS, 0.00027778},
+            {FARADAY, 0.00001036},
+            {STATCOULOMB, 2997924580},
+            {ELEMENTARY_CHARGE, 6.24150947E+18}
+        };
+
+    public:
+
         /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
         /// @param inUnit The unit of the given value
         /// @param inVal The value to convert
@@ -113,83 +92,10 @@ namespace ElectricConv
 
     class CapacityConverter
     {
-        /**
-            ELECTRIC CAPACITY
 
-            Calculations are based on 1 Farad
-        **/
+    public:
 
-    private:
-
-        /// Farad
-        const double F = 1;
-
-        /// Decafarad equal to 1 Farad
-        const double daF = 0.1;
-
-        /// Hectofarad equal to 1 Farad
-        const double hF = 0.01;
-
-        /// Kilofarad equal to 1 Farad
-        const double kF = 0.001;
-
-        /// Megafarad equal to 1 Farad
-        const double MF = 0.000001;
-
-        /// Gigafarad equal to 1 Farad
-        const double GF = 10E-9;
-
-        /// Terafarad equal to 1 Farad
-        const double TF = 10E-13;
-
-        /// Petafarad equal to 1 Farad
-        const double PF = 10E-15;
-
-        /// Exafarad equal to 1 Farad
-        const double EF = 10E-18;
-
-        /// Zettafarad equal to 1 Farad
-        const double ZF = 10E-21;
-
-        /// Yottafarad equal to 1 Farad
-        const double YF = 10E-24;
-
-        /// Decifarad equal to 1 Farad
-        const double dF = 10;
-
-        /// Centifarad equal to 1 Farad
-        const double cF = 100;
-
-        /// Microfarad equal to 1 Farad
-        const double uF = 1000000;
-
-        /// Nanofarad equal to 1 Farad
-        const double nF = 1000000000;
-
-        /// Picofarad equal to 1 Farad
-        const double pF = 10E+12;
-
-        /// Femtofarad equal to 1 Farad
-        const double fF = 10E+15;
-
-        /// Attofarad equal to 1 Farad
-        const double aF = 10E+18;
-
-        /// Zeptofarad equal to 1 Farad
-        const double zF = 10E+21;
-
-        /// Yoctofarad equal to 1 Farad
-        const double yF = 10E+24;
-
-        /// Coulomb per Volt equal to 1 Farad
-        const double CpV = 1;
-
-        /// Abfarad equal to 1 Farad
-        const double abF = 10E-9;
-
-        /// Statfarad equal to 1 Farad
-        const double statF = 8.9875517874 * (10E+11);
-
+        /// Supported units for conversion
         enum UNITS
         {
             /// Farad
@@ -239,6 +145,38 @@ namespace ElectricConv
             /// Statfarad
             STATFARAD
         };
+
+    private:
+
+        /// Untit mappings based on 1 Farad
+        std::map<UNITS, double> unitMap =
+        {
+            {FARAD, 1},
+            {DECAFARAD, 0.1},
+            {HECTOFARAD, 0.01},
+            {KILOFARAD, 0.001},
+            {MEGAFARAD, 0.000001},
+            {GIGAFARAD, 10E-9},
+            {TERAFARAD, 10E-13},
+            {PETAFARAD, 10E-15},
+            {EXAFARAD, 10E-18},
+            {ZETTAFARAD, 10E-21},
+            {YOTTAFARAD, 10E-24},
+            {DECIFARAD, 10},
+            {CENTIFARAD, 100},
+            {MICROFARAD, 1000000},
+            {NANOFARAD, 1000000000},
+            {PICOFARAD, 10E+12},
+            {FEMTOFARAD, 10E+15},
+            {ATTOFARAD, 10E+18},
+            {ZEPTOFARAD, 10E+21},
+            {YOCTOFARAD, 10E+24},
+            {COULOMB_PER_VOLT, 1},
+            {ABFARAD, 10E-9},
+            {STATFARAD, 8.9875517874 * (10E+11)}
+        };
+
+    public:
 
         /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
         /// @param inUnit The unit of the given value
