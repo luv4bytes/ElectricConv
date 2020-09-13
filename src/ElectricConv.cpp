@@ -42,3 +42,13 @@ double ElectricConv::CapacityConverter::Convert(ElectricConv::CapacityConverter:
 
     return result;
 }
+
+double ElectricConv::ConductivityConverter::Convert(ElectricConv::ConductivityConverter::UNITS inUnit,
+                                                    double inVal,
+                                                    ElectricConv::ConductivityConverter::UNITS outUnit)
+{
+    double siemens = inVal / unitMap[inUnit];
+    double result = siemens * unitMap[outUnit];
+
+    return result;
+}

@@ -90,6 +90,7 @@ namespace ElectricConv
         double Convert(UNITS inUnit, double inVal, UNITS outUnit);
     };
 
+    /// CapacityConverter is used to convert electrical capacity.
     class CapacityConverter
     {
 
@@ -174,6 +175,60 @@ namespace ElectricConv
             {COULOMB_PER_VOLT, 1},
             {ABFARAD, 10E-9},
             {STATFARAD, 8.9875517874 * (10E+11)}
+        };
+
+    public:
+
+        /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
+        /// @param inUnit The unit of the given value
+        /// @param inVal The value to convert
+        /// @param outUnit The unit of the result
+        double Convert(UNITS inUnit, double inVal, UNITS outUnit);
+    };
+
+    /// ConductivityConverter is used to convert electrical conductivity.
+    class ConductivityConverter
+    {
+
+    public:
+
+        /// Supported units for conversion
+        enum UNITS
+        {
+            /// Siemens
+            SIEMENS,
+            /// Nanosiemens
+            NANOSIEMENS,
+            /// Millisiemens
+            MILLISIEMENS,
+            /// Microsiemens
+            MICROSIEMENS,
+            /// Kilosiemens
+            KILOSIEMENS,
+            /// Megasiemens
+            MEGASIEMENS,
+            /// Gigasiemens
+            GIGASIEMENS,
+            /// Mho
+            MHO,
+            /// Ampere per Volt
+            AMPERE_PER_VOLT
+        };
+
+    private:
+
+        /// Untit mappings based on 1 Siemens
+        std::map<UNITS, double> unitMap =
+        {
+            {SIEMENS, 1},
+            {NANOSIEMENS, 1000000000},
+            {MICROSIEMENS, 1000000},
+            {MILLISIEMENS, 1000},
+            {KILOSIEMENS, 0.001},
+            {MEGASIEMENS, 0.000001},
+            {GIGASIEMENS, 10E-9},
+            {MHO, 1},
+            {AMPERE_PER_VOLT, 1}
         };
 
     public:
