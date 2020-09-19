@@ -52,3 +52,43 @@ double ElectricConv::ConductivityConverter::Convert(ElectricConv::ConductivityCo
 
     return result;
 }
+
+double ElectricConv::CurrentConverter::Convert(ElectricConv::CurrentConverter::UNITS inUnit,
+                                                    double inVal,
+                                                    ElectricConv::CurrentConverter::UNITS outUnit)
+{
+    double ampere = inVal / unitMap[inUnit];
+    double result = ampere * unitMap[outUnit];
+
+    return result;
+}
+
+double ElectricConv::ResistanceConverter::Convert(ElectricConv::ResistanceConverter::UNITS inUnit,
+                                                    double inVal,
+                                                    ElectricConv::ResistanceConverter::UNITS outUnit)
+{
+    double ohm = inVal / unitMap[inUnit];
+    double result = ohm * unitMap[outUnit];
+
+    return result;
+}
+
+double ElectricConv::InductivityConverter::Convert(ElectricConv::InductivityConverter::UNITS inUnit,
+                                                    double inVal,
+                                                    ElectricConv::InductivityConverter::UNITS outUnit)
+{
+    double henry = inVal / unitMap[inUnit];
+    double result = henry * unitMap[outUnit];
+
+    return result;
+}
+
+double ElectricConv::PotentialConverter::Convert(ElectricConv::PotentialConverter::UNITS inUnit,
+                                                    double inVal,
+                                                    ElectricConv::PotentialConverter::UNITS outUnit)
+{
+    double volt = inVal / unitMap[inUnit];
+    double result = volt * unitMap[outUnit];
+
+    return result;
+}

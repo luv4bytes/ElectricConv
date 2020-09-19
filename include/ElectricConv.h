@@ -48,8 +48,6 @@ namespace ElectricConv
             KILOCOULOMB,
             /// Megacoulomb
             MEGACOULOMB,
-            /// Abcoulomb
-            ABCOULOMB,
             /// Milliampere-hours
             MILLIAMPERE_HOURS,
             /// Ampere-hours
@@ -73,7 +71,6 @@ namespace ElectricConv
             {MILLICOULOMB, 1000},
             {KILOCOULOMB, 0.0001},
             {MEGACOULOMB, 0.000001},
-            {ABCOULOMB, 0.1},
             {MILLIAMPERE_HOURS, 0.27777778},
             {AMPERE_HOURS, 0.00027778},
             {FARADAY, 0.00001036},
@@ -141,8 +138,6 @@ namespace ElectricConv
             YOCTOFARAD,
             /// Coulomb per Volt
             COULOMB_PER_VOLT,
-            /// Abfarad
-            ABFARAD,
             /// Statfarad
             STATFARAD
         };
@@ -173,7 +168,6 @@ namespace ElectricConv
             {ZEPTOFARAD, 10E+21},
             {YOCTOFARAD, 10E+24},
             {COULOMB_PER_VOLT, 1},
-            {ABFARAD, 10E-9},
             {STATFARAD, 8.9875517874 * (10E+11)}
         };
 
@@ -229,6 +223,213 @@ namespace ElectricConv
             {GIGASIEMENS, 10E-9},
             {MHO, 1},
             {AMPERE_PER_VOLT, 1}
+        };
+
+    public:
+
+        /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
+        /// @param inUnit The unit of the given value
+        /// @param inVal The value to convert
+        /// @param outUnit The unit of the result
+        double Convert(UNITS inUnit, double inVal, UNITS outUnit);
+    };
+
+    /// CurrentConverter is used to convert electrical current.
+    class CurrentConverter
+    {
+
+    public:
+
+        /// Supported units for conversion
+        enum UNITS
+        {
+            /// Nanoampere
+            NANOAMPERE,
+            /// Microampere
+            MICROAMPERE,
+            /// Milliampere
+            MILLIAMPERE,
+            /// Ampere
+            AMPERE,
+            /// Kiloampere
+            KILOAMPERE,
+            /// Megaampere
+            MEGAAMPERE,
+            /// Gigaampere
+            GIGAAMPERE,
+            /// Coulomb per second
+            COULOMB_PER_SECOND
+        };
+
+    private:
+
+        /// Untit mappings based on 1 Ampere
+        std::map<UNITS, double> unitMap =
+        {
+            {AMPERE, 1},
+            {NANOAMPERE, 1000000000},
+            {MICROAMPERE, 1000000},
+            {MILLIAMPERE, 1000},
+            {KILOAMPERE, 0.001},
+            {MEGAAMPERE, 0.000001},
+            {GIGAAMPERE, 10E-9},
+            {COULOMB_PER_SECOND, 1}
+        };
+
+    public:
+
+        /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
+        /// @param inUnit The unit of the given value
+        /// @param inVal The value to convert
+        /// @param outUnit The unit of the result
+        double Convert(UNITS inUnit, double inVal, UNITS outUnit);
+    };
+
+    /// ResitanceConverter is used to convert electrical resitance.
+    class ResistanceConverter
+    {
+
+    public:
+
+        /// Supported units for conversion
+        enum UNITS
+        {
+            /// Nanoohm
+            NANOOHM,
+            /// Microohm
+            MICROOHM,
+            /// Milliohm
+            MILLIOHM,
+            /// Ohm
+            OHM,
+            /// Kiloohm
+            KILOOHM,
+            /// Megaohm
+            MEGAOHM,
+            /// Gigaohm
+            GIGAOHM,
+            /// Volt per Ampere
+            VOLT_PER_AMPERE
+        };
+
+    private:
+
+        /// Untit mappings based on 1 Ohm
+        std::map<UNITS, double> unitMap =
+        {
+            {OHM, 1},
+            {NANOOHM, 1000000000},
+            {MICROOHM, 1000000},
+            {MILLIOHM, 1000},
+            {KILOOHM, 0.001},
+            {MEGAOHM, 0.000001},
+            {GIGAOHM, 10E-9},
+            {VOLT_PER_AMPERE, 1}
+        };
+
+    public:
+
+        /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
+        /// @param inUnit The unit of the given value
+        /// @param inVal The value to convert
+        /// @param outUnit The unit of the result
+        double Convert(UNITS inUnit, double inVal, UNITS outUnit);
+    };
+
+    /// InductivityConverter is used to convert electrical inductivity.
+    class InductivityConverter
+    {
+
+    public:
+
+        /// Supported units for conversion
+        enum UNITS
+        {
+            /// Nanohenry
+            NANOHENRY,
+            /// Microhenry
+            MICROHENRY,
+            /// Millihenry
+            MILLIHENRY,
+            /// Henry
+            HENRY,
+            /// Kilohenry
+            KILOHENRY,
+            /// Megahenry
+            MEGAHENRY,
+            /// Gigahenry
+            GIGAHENRY,
+            /// Weber per Ampere
+            WEBER_PRO_AMPERE
+        };
+
+    private:
+
+        /// Untit mappings based on 1 Henry
+        std::map<UNITS, double> unitMap =
+        {
+            {HENRY, 1},
+            {NANOHENRY, 1000000000},
+            {MICROHENRY, 1000000},
+            {MILLIHENRY, 1000},
+            {KILOHENRY, 0.001},
+            {MEGAHENRY, 0.000001},
+            {GIGAHENRY, 10E-9},
+            {WEBER_PRO_AMPERE, 1}
+        };
+
+    public:
+
+        /// Converts value 'inVal' of unit 'inUnit' to 'outUnit' and returns the value.
+        /// @param inUnit The unit of the given value
+        /// @param inVal The value to convert
+        /// @param outUnit The unit of the result
+        double Convert(UNITS inUnit, double inVal, UNITS outUnit);
+    };
+
+    /// PotentialConverter is used to convert electrical potential.
+    class PotentialConverter
+    {
+
+    public:
+
+        /// Supported units for conversion
+        enum UNITS
+        {
+            /// Nanovolt
+            NANOVOLT,
+            /// Microvolt
+            MICROVOLT,
+            /// Millivolt
+            MILLIVOLT,
+            /// Volt
+            VOLT,
+            /// Kilovolt
+            KILOVOLT,
+            /// Megahvolt
+            MEGAVOLT,
+            /// Gigavolt
+            GIGAVOLT,
+            /// Watt per Ampere
+            WATT_PER_AMPERE,
+            /// Statvolt
+            STATVOLT
+        };
+
+    private:
+
+        /// Untit mappings based on 1 Volt
+        std::map<UNITS, double> unitMap =
+        {
+            {VOLT, 1},
+            {NANOVOLT, 1000000000},
+            {MICROVOLT, 1000000},
+            {MILLIVOLT, 1000},
+            {KILOVOLT, 0.001},
+            {MEGAVOLT, 0.000001},
+            {GIGAVOLT, 10E-9},
+            {WATT_PER_AMPERE, 1},
+            {STATVOLT, 0.00333564}
         };
 
     public:
